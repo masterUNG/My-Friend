@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">My Friend</string>
+
+    <string name="signin">Sign In</string>
+    <string name="signnup">Sign Up</string>
+
 </resources>
