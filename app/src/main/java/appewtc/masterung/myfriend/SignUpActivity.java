@@ -47,6 +47,13 @@ public class SignUpActivity extends AppCompatActivity {
         rePasswordString = rePasswordEditText.getText().toString().trim();
 
         //Check Space
+        if (nameString.equals("") || userString.equals("") ||
+                passwordString.equals("") || rePasswordString.equals("")) {
+            //Have Space
+            MyAlert myAlert = new MyAlert(this,
+                    R.drawable.doremon48, "มีช่องว่าง", "กรุณากรอกทุกช่องคะ");
+            myAlert.myDialog();
+        }
 
 
     }   // clickSign
