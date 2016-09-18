@@ -152,6 +152,7 @@
                 android:id="@+id/editText3"
                 android:layout_weight="1.3"
                 android:textColor="@color/aText"
+
                 android:inputType="text" />
         </LinearLayout>
 
