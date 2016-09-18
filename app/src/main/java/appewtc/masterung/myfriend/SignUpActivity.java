@@ -1,7 +1,10 @@
 package appewtc.masterung.myfriend;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +22,8 @@ public class SignUpActivity extends AppCompatActivity {
     private RadioButton maleRadioButton, femaleRadioButton;
     private ImageView imageView;
     private String nameString, userString, passwordString,
-            rePasswordString, sexString, imageString;
+            rePasswordString, sexString, imageString,
+            imagePathString, imageNameString;
 
 
     @Override
@@ -63,9 +67,36 @@ public class SignUpActivity extends AppCompatActivity {
             // Result Complete
             Log.d("MyFriendV1", "Result ==> OK");
 
+            //Find Path of Image
+            Uri uri = data.getData();
+            imagePathString = myFindPathImage(uri);
+            Log.d("MyFriendV1", "imagePathString ==> " + imagePathString);
+
+
         }   // if
 
     }   // onActivityResult
+
+    private String myFindPathImage(Uri uri) {
+
+        String strResult = null;
+        String[] strings = {MediaStore.Images.Media.DATA};
+        Cursor cursor = getContentResolver().query(uri, strings,
+                null, null, null);
+
+        if (cursor != null) {
+
+            cursor.moveToFirst();
+            int intIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            strResult = cursor.getString(intIndex);
+
+        } else {
+            strResult = uri.getPath();
+        }
+
+
+        return strResult;
+    }
 
     public void clickSignUpSign(View view) {
 
