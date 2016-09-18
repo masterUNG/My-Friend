@@ -62,6 +62,22 @@ public class SignUpActivity extends AppCompatActivity {
             }   // onClick
         });
 
+        //Radio Controller
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+
+                switch (i) {
+                    case R.id.radioButton:
+                        sexString = "Male";
+                        break;
+                    case R.id.radioButton2:
+                        sexString = "Female";
+                        break;
+                }   // switch
+
+            }   // onChecked
+        });
 
     }   // Main Method
 
@@ -151,11 +167,22 @@ public class SignUpActivity extends AppCompatActivity {
         } else {
             // Upload Image and Data to Server
             uploadImageToServer();
+            insertDataToServer();
 
         }
 
 
     }   // clickSign
+
+    private void insertDataToServer() {
+
+        imageNameString = imagePathString.substring(imagePathString.lastIndexOf("/"));
+        imageNameString = "http://swiftcodingthai.com/18Sep/Image" + imageNameString;
+        Log.d("MyFriendV1", "imageNameString ==> " + imageNameString);
+
+
+
+    }   // insertData
 
     private void uploadImageToServer() {
 
