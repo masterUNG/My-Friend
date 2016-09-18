@@ -26,6 +26,7 @@ public class SignUpActivity extends AppCompatActivity {
     private String nameString, userString, passwordString,
             rePasswordString, sexString, imageString,
             imagePathString, imageNameString;
+    private boolean statusABoolean = true;
 
 
     @Override
@@ -83,7 +84,9 @@ public class SignUpActivity extends AppCompatActivity {
 
             } catch (Exception e) {
                 e.printStackTrace();
-            }
+            }   // try
+
+            statusABoolean = false;
 
 
         }   // if
@@ -136,6 +139,12 @@ public class SignUpActivity extends AppCompatActivity {
             MyAlert myAlert = new MyAlert(this, R.drawable.bird48,
                     "ยังไม่เลือก เพศ", "กรุณาเลือกเพศด้วยคะ");
             myAlert.myDialog();
+        } else if (statusABoolean) {
+            MyAlert myAlert = new MyAlert(this, R.drawable.kon48,
+                    "ยังไม่เลือกรูป", "กรุณาเลือกรูป ด้วยคะ");
+            myAlert.myDialog();
+        } else {
+
         }
 
 
