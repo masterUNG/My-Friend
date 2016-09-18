@@ -144,11 +144,17 @@ public class SignUpActivity extends AppCompatActivity {
                     "ยังไม่เลือกรูป", "กรุณาเลือกรูป ด้วยคะ");
             myAlert.myDialog();
         } else {
+            // Upload Image and Data to Server
+            uploadImageToServer();
 
         }
 
 
     }   // clickSign
+
+    private void uploadImageToServer() {
+
+    }   // uploadImageToServer
 
 
 }   // Main Class
