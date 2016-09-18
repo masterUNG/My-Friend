@@ -1,7 +1,9 @@
 package appewtc.masterung.myfriend;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -35,8 +37,35 @@ public class SignUpActivity extends AppCompatActivity {
         femaleRadioButton = (RadioButton) findViewById(R.id.radioButton2);
         imageView = (ImageView) findViewById(R.id.imageView);
 
+        //Image Controller
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(Intent.createChooser(intent,
+                        "โปรดเลือกรูปภาพ"), 1);
+
+            }   // onClick
+        });
+
 
     }   // Main Method
+
+    @Override
+    protected void onActivityResult(int requestCode,
+                                    int resultCode,
+                                    Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if ((requestCode == 1) && (resultCode == RESULT_OK)) {
+            // Result Complete
+            Log.d("MyFriendV1", "Result ==> OK");
+
+        }   // if
+
+    }   // onActivityResult
 
     public void clickSignUpSign(View view) {
 
