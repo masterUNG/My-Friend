@@ -97,7 +97,8 @@
                         android:layout_height="wrap_content"
                         android:text="Male"
                         android:id="@+id/radioButton"
-                        android:textColor="@color/aText" />
+                        android:textColor="@color/aText"
+                        android:checked="false" />
 
                     <RadioButton
                         android:layout_width="wrap_content"

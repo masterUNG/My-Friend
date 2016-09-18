@@ -58,6 +58,11 @@ public class SignUpActivity extends AppCompatActivity {
             MyAlert myAlert = new MyAlert(this, R.drawable.nobita48,
                     "Password ผิด", "กรุณาพิมพ์ Password ให้เหมือนกัน");
             myAlert.myDialog();
+        } else if (!(maleRadioButton.isChecked() || femaleRadioButton.isChecked())) {
+            // Non Choose Sex
+            MyAlert myAlert = new MyAlert(this, R.drawable.bird48,
+                    "ยังไม่เลือก เพศ", "กรุณาเลือกเพศด้วยคะ");
+            myAlert.myDialog();
         }
 
 
